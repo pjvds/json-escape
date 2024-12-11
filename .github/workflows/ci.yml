@@ -60,7 +60,6 @@ jobs:
           value: 'Hello, World! 🌍'
 
       - name: Print Output
-        id: output
         run: echo "${{ steps.test-emoji.outputs.value }}"
 
       - name: Escape quotes
@@ -70,7 +69,6 @@ jobs:
           value: 'Hello, "World"!'
 
       - name: Print Output
-        id: output
         run: echo "${{ steps.test-quotes.outputs.value }}"
 
       - name: Escape newline
@@ -80,5 +78,4 @@ jobs:
           value: 'Hello,\nWorld!'
 
       - name: Print Output
-        id: output
         run: echo "${{ steps.test-newline.outputs.value }}"
