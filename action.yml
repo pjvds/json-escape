@@ -13,6 +13,11 @@ inputs:
     description: 'The input to escape'
     required: true
 
+  repeat:
+    description: 'The number of times to repeat the escaping (string|number)'
+    required: false
+    default: 'false'
+
 # Define your outputs here.
 outputs:
   value:

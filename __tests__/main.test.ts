@@ -12,12 +12,15 @@ import { run } from '../src/main'
 const examples = [
   ['hello world', 'hello world'],
   ['hello\nworld', 'hello\\nworld'],
+  ['hello\\nworld', 'hello\\\\nworld'],
+  ['hello "world"', 'hello "world"'],
   ['♥ Bücher', '\\u2665 B\\xFCcher'],
   ['foo 𝌆 bar 💩 baz', 'foo \\uD834\\uDF06 bar \\uD83D\\uDCA9 baz']
 ]
 
-it('should escape input from the examples', () => {
-  for (const [input, expected] of examples) {
+it.each(examples)(
+  'should escape input from the examples',
+  (input, expected) => {
     const target = RunTarget.syncFn(run)
     const options = RunOptions.create().setInputs({ value: input })
 
@@ -29,4 +32,4 @@ it('should escape input from the examples', () => {
     expect(result.commands.outputs.value).toBe(expected)
     expect(result.runnerWarnings.length).toBe(0)
   }
-})
+)

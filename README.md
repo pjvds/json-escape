@@ -9,6 +9,11 @@ match the pattern and comments it on the pull request.
 
 **Required** The string value to escape.
 
+### `repeat`
+
+**Optional** (`true|false|number`) The number of times to repeat the escaping.
+Default `false`.
+
 ## Outputs
 
 ### `value`

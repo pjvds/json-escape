@@ -26006,6 +26006,19 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.run = run;
 const core = __importStar(__nccwpck_require__(7484));
 const jsesc_1 = __importDefault(__nccwpck_require__(9376));
+function getRepeatCount(repeat) {
+    if (!repeat) {
+        return 1;
+    }
+    if (repeat === 'true') {
+        return 2;
+    }
+    const count = parseInt(repeat, 10);
+    if (isNaN(count)) {
+        throw new Error(`Invalid repeat value: ${repeat}`);
+    }
+    return count;
+}
 /**
  * The main function for the action.
  * @returns {<void>} Resolves when the action is complete.
@@ -26013,10 +26026,17 @@ const jsesc_1 = __importDefault(__nccwpck_require__(9376));
 function run() {
     try {
         const value = core.getInput('value');
-        core.info(`Escaping value:\n${value}`);
-        const escaped = (0, jsesc_1.default)(value);
-        core.info(`Escaped value:\n${escaped}`);
-        core.setOutput('value', escaped);
+        const repeat = core.getInput('repeat');
+        const count = getRepeatCount(repeat);
+        if (count < 1) {
+            throw new Error(`Invalid repeat count: ${count}`);
+        }
+        for (let i = 0; i < count; i++) {
+            core.info(`Escaping value:\n${value}`);
+            const escaped = (0, jsesc_1.default)(value);
+            core.info(`Escaped value:\n${escaped}`);
+            core.setOutput('value', escaped);
+        }
     }
     catch (caught) {
         if (caught instanceof Error) {
