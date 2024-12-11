@@ -26033,7 +26033,9 @@ function run() {
         }
         for (let i = 0; i < count; i++) {
             core.info(`Escaping value:\n${value}`);
-            const escaped = (0, jsesc_1.default)(value);
+            const escaped = (0, jsesc_1.default)(value, {
+                quotes: 'double'
+            });
             core.info(`Escaped value:\n${escaped}`);
             core.setOutput('value', escaped);
         }

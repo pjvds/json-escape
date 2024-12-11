@@ -35,7 +35,9 @@ export function run(): void {
     for (let i = 0; i < count; i++) {
       core.info(`Escaping value:\n${value}`)
 
-      const escaped = jsesc(value)
+      const escaped = jsesc(value, {
+        quotes: 'double'
+      })
       core.info(`Escaped value:\n${escaped}`)
 
       core.setOutput('value', escaped)
