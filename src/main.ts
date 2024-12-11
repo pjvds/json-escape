@@ -8,7 +8,10 @@ import jsesc from 'jsesc'
 export async function run(): Promise<void> {
   try {
     const value = core.getInput('value')
+    core.info(`Escaping value:\n${value}`)
+
     const escaped = jsesc(value)
+    core.info(`Escaped value:\n${escaped}`)
 
     core.setOutput('escaped', escaped)
   } catch (caught) {
