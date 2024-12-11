@@ -2,7 +2,7 @@ import * as core from '@actions/core'
 import jsesc from 'jsesc'
 
 function getRepeatCount(repeat: string | null): number {
-  if (!repeat) {
+  if (!repeat || repeat === 'false') {
     return 1
   }
 
