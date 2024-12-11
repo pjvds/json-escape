@@ -1,0 +1,20 @@
+name: 'JSON Escape'
+description: 'Escapes a string for use in JSON'
+author: 'Pieter Joost van de Sande'
+
+branding:
+  icon: 'activity'
+
+inputs:
+  value:
+    description: 'The input to escape'
+    required: true
+
+# Define your outputs here.
+outputs:
+  value:
+    description: 'The escaped input'
+
+runs:
+  using: node20
+  main: dist/index.js
