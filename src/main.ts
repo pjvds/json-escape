@@ -3,9 +3,9 @@ import jsesc from 'jsesc'
 
 /**
  * The main function for the action.
- * @returns {Promise<void>} Resolves when the action is complete.
+ * @returns {<void>} Resolves when the action is complete.
  */
-export async function run(): Promise<void> {
+export function run(): void {
   try {
     const value = core.getInput('value')
     core.info(`Escaping value:\n${value}`)
