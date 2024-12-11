@@ -10,21 +10,21 @@ import { RunOptions, RunTarget } from 'github-action-ts-run-api'
 import { run } from '../src/main'
 
 const examples = [
-  ["hello world", "hello world"],
-  ["hello\nworld", "hello\\nworld"],
-  ["♥ Bücher", "\\u2665 B\\xFCcher"],
-  ["foo 𝌆 bar 💩 baz", "foo \\uD834\\uDF06 bar \\uD83D\\uDCA9 baz"],
+  ['hello world', 'hello world'],
+  ['hello\nworld', 'hello\\nworld'],
+  ['♥ Bücher', '\\u2665 B\\xFCcher'],
+  ['foo 𝌆 bar 💩 baz', 'foo \\uD834\\uDF06 bar \\uD83D\\uDCA9 baz']
 ]
 
-it('should escape input from the examples', async () => {
+it('should escape input from the examples', () => {
   for (const [input, expected] of examples) {
     const target = RunTarget.syncFn(run)
     const options = RunOptions.create().setInputs({ value: input })
 
     const result = target.run(options)
 
-    expect(result.durationMs < 500)
-    expect(result.isSuccess)
+    expect(result.isSuccess).toBe(true)
+    expect(result.durationMs).toBeLessThan(500)
     expect(result.commands.outputs).toHaveProperty('value')
     expect(result.commands.outputs.value).toBe(expected)
     expect(result.runnerWarnings.length).toBe(0)
