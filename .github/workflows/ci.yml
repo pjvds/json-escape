@@ -53,12 +53,32 @@ jobs:
         id: checkout
         uses: actions/checkout@v4
 
-      - name: Test Local Action
-        id: test-action
+      - name: Escape emoji
+        id: test-emoji
         uses: ./
         with:
           value: 'Hello, World! 🌍'
 
       - name: Print Output
         id: output
-        run: echo "${{ steps.test-action.outputs.value }}"
+        run: echo "${{ steps.test-emoji.outputs.value }}"
+
+      - name: Escape quotes
+        id: test-quotes
+        uses: ./
+        with:
+          value: 'Hello, "World"!'
+
+      - name: Print Output
+        id: output
+        run: echo "${{ steps.test-quotes.outputs.value }}"
+
+      - name: Escape newline
+        id: test-newline
+        uses: ./
+        with:
+          value: 'Hello,\nWorld!'
+
+      - name: Print Output
+        id: output
+        run: echo "${{ steps.test-newline.outputs.value }}"
