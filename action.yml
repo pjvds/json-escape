@@ -1,5 +1,7 @@
 name: 'JSON Escape'
-description: 'Escapes a string for use in JSON'
+description: |
+  JSON Escape helps to escape JSON strings by removing or encoding traces of special characters that could prevent parsing.
+  It ensures correct parsing by escaping special characters, which helps to avoid errors in your application.
 author: 'Pieter Joost van de Sande'
 
 branding:
