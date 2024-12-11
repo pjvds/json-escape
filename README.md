@@ -1,7 +1,7 @@
 # json-escape-action
 
-This GitHub Action escapescounts the number of the characters in the files that match the pattern and comments it on the pull request.
-
+This GitHub Action escapescounts the number of the characters in the files that
+match the pattern and comments it on the pull request.
 
 ## Inputs
 

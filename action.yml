@@ -1,5 +1,7 @@
 name: 'JSON Escape'
-description: 'Escape JSON strings by removing or encoding traces of special characters that could prevent parsing.'
+description:
+  'Escape JSON strings by removing or encoding traces of special characters that
+  could prevent parsing.'
 author: 'Pieter Joost van de Sande'
 
 branding:
