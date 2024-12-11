@@ -26007,7 +26007,7 @@ exports.run = run;
 const core = __importStar(__nccwpck_require__(7484));
 const jsesc_1 = __importDefault(__nccwpck_require__(9376));
 function getRepeatCount(repeat) {
-    if (!repeat) {
+    if (!repeat || repeat === 'false') {
         return 1;
     }
     if (repeat === 'true') {
