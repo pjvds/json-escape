@@ -18,7 +18,7 @@ export function run(): void {
     if (caught instanceof Error) {
       core.setFailed(caught.message)
     } else {
-      core.setFailed(`${caught}`)
+      core.setFailed(String(caught))
     }
   }
 }
