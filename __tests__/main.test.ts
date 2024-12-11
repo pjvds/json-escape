@@ -13,7 +13,8 @@ const examples = [
   ['hello world', 'hello world'],
   ['hello\nworld', 'hello\\nworld'],
   ['hello\\nworld', 'hello\\\\nworld'],
-  ['hello "world"', 'hello "world"'],
+  ['hello "world"', 'hello \\"world\\"'],
+  ['hello \"world\"', 'hello \\\"world\\\"'],
   ['♥ Bücher', '\\u2665 B\\xFCcher'],
   ['foo 𝌆 bar 💩 baz', 'foo \\uD834\\uDF06 bar \\uD83D\\uDCA9 baz']
 ]
