@@ -13,7 +13,7 @@ export async function run(): Promise<void> {
     const escaped = jsesc(value)
     core.info(`Escaped value:\n${escaped}`)
 
-    core.setOutput('escaped', escaped)
+    core.setOutput('value', escaped)
   } catch (caught) {
     if (caught instanceof Error) {
       core.setFailed(caught.message)

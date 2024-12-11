@@ -25,8 +25,8 @@ it('should escape input from the examples', async () => {
 
     expect(result.durationMs < 500)
     expect(result.isSuccess)
-    expect(result.commands.outputs).toHaveProperty('escaped')
-    expect(result.commands.outputs.escaped).toBe(expected)
+    expect(result.commands.outputs).toHaveProperty('value')
+    expect(result.commands.outputs.value).toBe(expected)
     expect(result.runnerWarnings.length).toBe(0)
   }
 })
