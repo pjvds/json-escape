@@ -1,16 +1,16 @@
 {
-  "name": "json-escape-action",
+  "name": "json-escape",
   "description": "GitHub Action to escape JSON strings",
   "version": "1.0.0",
   "author": "Pieter Joost van de Sande",
   "private": true,
-  "homepage": "https://github.com/pjvds/json-escape-action",
+  "homepage": "https://github.com/pjvds/json-escape",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pjvds/json-escape-action.git"
+    "url": "git+https://github.com/pjvds/json-escape.git"
   },
   "bugs": {
-    "url": "https://github.com/pjvds/json-escape-action/issues"
+    "url": "https://github.com/pjvds/json-escape/issues"
   },
   "keywords": [
     "actions",
