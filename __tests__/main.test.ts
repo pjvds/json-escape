@@ -14,23 +14,24 @@ const examples = [
   ['hello\nworld', 'hello\\nworld'],
   ['hello\\nworld', 'hello\\\\nworld'],
   ['hello "world"', 'hello \\"world\\"'],
-  ['hello \"world\"', 'hello \\\"world\\\"'],
+  ['hello "world"', 'hello \\"world\\"'],
   ['♥ Bücher', '\\u2665 B\\xFCcher'],
-  ['foo 𝌆 bar 💩 baz', 'foo \\uD834\\uDF06 bar \\uD83D\\uDCA9 baz']
+  ['foo 𝌆 bar 💩 baz', 'foo \\uD834\\uDF06 bar \\uD83D\\uDCA9 baz'],
+  [
+    'This is a "test" string with special characters: \n, \t and an emoji 🚀',
+    'This is a \\"test\\" string with special characters: \\n, \\t and an emoji \\uD83D\\uDE80'
+  ]
 ]
 
-it.each(examples)(
-  'should escape input "%s" to "%s"',
-  (input, expected) => {
-    const target = RunTarget.syncFn(run)
-    const options = RunOptions.create().setInputs({ value: input })
+it.each(examples)('should escape input "%s" to "%s"', (input, expected) => {
+  const target = RunTarget.syncFn(run)
+  const options = RunOptions.create().setInputs({ value: input })
 
-    const result = target.run(options)
+  const result = target.run(options)
 
-    expect(result.isSuccess).toBe(true)
-    expect(result.durationMs).toBeLessThan(500)
-    expect(result.commands.outputs).toHaveProperty('value')
-    expect(result.commands.outputs.value).toBe(expected)
-    expect(result.runnerWarnings.length).toBe(0)
-  }
-)
+  expect(result.isSuccess).toBe(true)
+  expect(result.durationMs).toBeLessThan(500)
+  expect(result.commands.outputs).toHaveProperty('value')
+  expect(result.commands.outputs.value).toBe(expected)
+  expect(result.runnerWarnings.length).toBe(0)
+})
