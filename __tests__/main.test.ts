@@ -20,7 +20,7 @@ const examples = [
 ]
 
 it.each(examples)(
-  'should escape input from the examples',
+  'should escape input "%s" to "%s"',
   (input, expected) => {
     const target = RunTarget.syncFn(run)
     const options = RunOptions.create().setInputs({ value: input })
